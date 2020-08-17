@@ -1,0 +1,38 @@
+type Article {
+    id: Int,
+    title: String,
+
+}
+
+type Query {
+    articles(count: Int):[Article]
+    article(id: Int):Article
+}
+
+type Mutation{
+    createUserInfo(input: CreateUserInfo!) : Boolean!
+    authenticateUserInfo(input: AuthenticateUserInfo!): JwtResponse!
+    createArticle(input: CreateArticle!) : Article!
+}
+
+input CreateUserInfo{
+    username: String!
+    password: String!
+    fullname: String!
+}
+
+input CreateArticle{
+    title: String!
+}
+
+input AuthenticateUserInfo{
+    username: String!
+    password: String!
+}
+
+type JwtResponse{
+    token: String!
+}
+
+
+
